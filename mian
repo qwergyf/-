@@ -4,17 +4,22 @@ function fetchSomeData() {
   });
 }
 
-fetchSomeData()
-  .then(async (data) => {
-    console.log("接收到的数据:", data);
-    const processedData = await processData(data);
-    console.log("处理后的数据:", processedData);
-  })
-  .catch((error) => {
-    console.error("处理中发生错误:", error);
-  });
 function processData(data) {
   return new Promise((resolve, reject) => {
     setTimeout(() => resolve(data.toUpperCase()), 500);
   });
 }
+
+async function handleData() {
+  try {
+    const data = await fetchSomeData();
+    console.log("接收到的数据:", data);
+
+    const processedData = await processData(data);
+    console.log("处理后的数据:", processedData);
+  } catch (error) {
+    console.error("处理中发生错误:", error);
+  }
+}
+
+handleData();
