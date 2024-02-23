@@ -19,7 +19,3 @@ async function handleData() {
     console.log("处理后的数据:", processedData);
   } catch (error) {
     console.error("处理中发生错误:", error);
-  }
-}
-
-handleData();
